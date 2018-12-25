@@ -29,11 +29,12 @@ line-length = 79
 
 [tool.isort]
 line_length = 79
-multi_line_output = 3
+multi_line_output = 0
 balanced_wrapping = true
 include_trailing_comma = true
-force_grid_wrap = 0
+force_grid_wrap = false
 use_parentheses = true
+order_by_type = true
 
 import_heading_typdef = "Type Definition"
 known_typdef = ["typing", "typdefs"]

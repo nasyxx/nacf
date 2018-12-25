@@ -1,5 +1,9 @@
 * TODO Http Functions
 
-** TODO Get
+** DONE Get
+CLOSED: [2018-12-25 Tue 17:36]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2018-12-25 Tue 17:36]
+:END:
 
-** TODO Post
+** NEXT Post
