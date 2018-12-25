@@ -18,25 +18,25 @@
 Never had such a pure crawler like this ~nacf~.
 
 Although I often write crawlers, I don't like to use huge frameworks, such as scrapy, but prefer
-simple requests+bs4 or more general requests_html. But these two are inconvenient for a
-crawler. Places, such as error retry or parallel crawling, need to be handwritten by myself. It is
-not very difficult to write it, however writing too much can be tedious. Hence I started writing
-this nacf (Nasy Crawler Framework), hoping to simplify some retry or parallel writing.
+simple ~requests+bs4~ or more general ~requests_html~.  However, these two are inconvenient for a
+crawler.  E.g. Places, such as error retrying or parallel crawling, need to be handwritten by
+myself.  It is not very difficult to write it while writing too much can be tedious.  Hence I
+started writing this nacf (Nasy Crawler Framework), hoping to simplify some error retrying or
+parallel writing of crawlers.
 
 * Packages
 
 #+caption: Packages
 | Package       | Version | Description              |
 |---------------+---------+--------------------------|
-| requests      |  2.21.0 | Python HTTP for Humans.  |
 | requests-html |   0.9.0 | HTML Parsing for Humans. |
 
 * Development Process
 
-#+include: "todo.org" :minlevel 2
+#+include: "./todo.org"
 
 * Epoligue
 
 ** History
 
-#+include: "CHANGELOG" :minlevel 3
+#+include: "./CHANGELOG"
