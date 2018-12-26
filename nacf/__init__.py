@@ -40,7 +40,7 @@ There are more things in heaven and earth, Horatio, than are dreamt.
 # Local Packages
 from .models import css, get, post, text, urls, xpath, parallel
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 
 assert css

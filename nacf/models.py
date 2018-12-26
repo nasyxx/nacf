@@ -77,7 +77,8 @@ def parallel(n: Optional[int] = None, **kwds: a) -> Callable[[Func], Func]:
 
         @wraps(func)
         def wrapper(
-            _urls: Urls,
+            _urls: Urls = Optional[None],
+            *,
             _datas: Optional[Iterable[Data]] = None,
             _jsons: Optional[Iterable[Json]] = None,
             **_kwds: b,
@@ -109,11 +110,6 @@ def parallel(n: Optional[int] = None, **kwds: a) -> Callable[[Func], Func]:
             "__signature__",
             generate_sig(
                 func,
-                # TODO: Hope someone help me fix this error.
-                # Parameter(
-                #     "_urls", Parameter.POSITIONAL_OR_KEYWORD,
-                #     annotation="Urls"
-                # ),
                 Parameter(
                     "_datas",
                     Parameter.KEYWORD_ONLY,

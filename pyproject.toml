@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nacf"
-version = "0.1.1"
+version = "0.1.2"
 description = "Nasy Crawler Framework -- Never had such a pure crawler."
 authors = ["Nasy <nasyxx+nacf@gmail.com>"]
 license = "GPL-3.0+"

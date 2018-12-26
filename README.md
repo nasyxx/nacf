@@ -1,21 +1,22 @@
 # Table of Contents
 
--   [Prologue](#org591fabd)
--   [Packages](#orgfab1ac5)
--   [Development Process](#orgf9ac559)
-    -   [Http Functions](#org0c20f86)
-        -   [Get](#org7d426ca)
-        -   [Post](#org40e101b)
-        -   [Bugs](#org2b33a0e)
-            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#orgb794b62)
--   [Epoligue](#org1b62763)
-    -   [History](#org953eff6)
-        -   [Version 0.1.1](#org40f41b8)
-        -   [Version 0.1.0](#org18b1472)
+-   [Prologue](#orge8b2d63)
+-   [Packages](#org2d6e4f2)
+-   [Development Process](#orgcdb2d25)
+    -   [Http Functions](#org2562d26)
+        -   [Get](#org268a91b)
+        -   [Post](#org39534ac)
+        -   [Bugs](#org60b0f47)
+            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#org5f07c18):err:1:
+-   [Epoligue](#orga79b864)
+    -   [History](#orgd2e0e7c)
+        -   [Version 0.1.2](#org1180830)
+        -   [Version 0.1.1](#org3b9e479)
+        -   [Version 0.1.0](#orga1b8a28)
 
 
 
-<a id="org591fabd"></a>
+<a id="orge8b2d63"></a>
 
 # Prologue
 
@@ -29,7 +30,7 @@ started writing this nacf (Nasy Crawler Framework), hoping to simplify some erro
 parallel writing of crawlers.
 
 
-<a id="orgfab1ac5"></a>
+<a id="org2d6e4f2"></a>
 
 # Packages
 
@@ -61,49 +62,59 @@ parallel writing of crawlers.
 </table>
 
 
-<a id="orgf9ac559"></a>
+<a id="orgcdb2d25"></a>
 
 # Development Process
 
 
-<a id="org0c20f86"></a>
+<a id="org2562d26"></a>
 
 ## TODO Http Functions
 
 
-<a id="org7d426ca"></a>
+<a id="org268a91b"></a>
 
 ### DONE Get
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2018-12-25 Tue 17:36]</span></span></p>
 
 
-<a id="org40e101b"></a>
+<a id="org39534ac"></a>
 
 ### NEXT Post
 
 
-<a id="org2b33a0e"></a>
+<a id="org60b0f47"></a>
 
 ### TODO Bugs
 
 
-<a id="orgb794b62"></a>
+<a id="org5f07c18"></a>
 
-#### TODO Fix an error from inspect.Parameter which caused the function parallel down.
+#### DONE Fix an error from inspect.Parameter which caused the function parallel down.     :err:1:
+
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2018-12-26 Wed 20:26]</span></span></p>
 
 
-<a id="org1b62763"></a>
+<a id="orga79b864"></a>
 
 # Epoligue
 
 
-<a id="org953eff6"></a>
+<a id="orgd2e0e7c"></a>
 
 ## History
 
 
-<a id="org40f41b8"></a>
+<a id="org1180830"></a>
+
+### Version 0.1.2
+
+-   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-26 Wed&gt;</span></span>
+-   **Fixed:** `inspect.Parameter` error in last version.
+
+
+<a id="org3b9e479"></a>
 
 ### Version 0.1.1
 
@@ -112,7 +123,7 @@ parallel writing of crawlers.
 -   **Help Wanted:** Can someone help me about the Parameter?
 
 
-<a id="org18b1472"></a>
+<a id="orga1b8a28"></a>
 
 ### Version 0.1.0
 
