@@ -109,12 +109,11 @@ def parallel(n: Optional[int] = None, **kwds: a) -> Callable[[Func], Func]:
             "__signature__",
             generate_sig(
                 func,
-                Parameter(
-                    "_urls",
-                    Parameter.POSITIONAL_OR_KEYWORD,
-                    default=None,
-                    annotation="Urls",
-                ),
+                # TODO: Hope someone help me fix this error.
+                # Parameter(
+                #     "_urls", Parameter.POSITIONAL_OR_KEYWORD,
+                #     annotation="Urls"
+                # ),
                 Parameter(
                     "_datas",
                     Parameter.KEYWORD_ONLY,

@@ -1,18 +1,21 @@
 # Table of Contents
 
--   [Prologue](#orgefdab53)
--   [Packages](#orgc11b1dc)
--   [Development Process](#org6e3c1eb)
-    -   [Http Functions](#org89395ee)
-        -   [Get](#org063529e)
-        -   [Post](#orge045e05)
--   [Epoligue](#org0f619c0)
-    -   [History](#org90eabca)
-        -   [Version 0.1.0](#org8af289f)
+-   [Prologue](#org591fabd)
+-   [Packages](#orgfab1ac5)
+-   [Development Process](#orgf9ac559)
+    -   [Http Functions](#org0c20f86)
+        -   [Get](#org7d426ca)
+        -   [Post](#org40e101b)
+        -   [Bugs](#org2b33a0e)
+            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#orgb794b62)
+-   [Epoligue](#org1b62763)
+    -   [History](#org953eff6)
+        -   [Version 0.1.1](#org40f41b8)
+        -   [Version 0.1.0](#org18b1472)
 
 
 
-<a id="orgefdab53"></a>
+<a id="org591fabd"></a>
 
 # Prologue
 
@@ -26,7 +29,7 @@ started writing this nacf (Nasy Crawler Framework), hoping to simplify some erro
 parallel writing of crawlers.
 
 
-<a id="orgc11b1dc"></a>
+<a id="orgfab1ac5"></a>
 
 # Packages
 
@@ -58,39 +61,58 @@ parallel writing of crawlers.
 </table>
 
 
-<a id="org6e3c1eb"></a>
+<a id="orgf9ac559"></a>
 
 # Development Process
 
 
-<a id="org89395ee"></a>
+<a id="org0c20f86"></a>
 
 ## TODO Http Functions
 
 
-<a id="org063529e"></a>
+<a id="org7d426ca"></a>
 
 ### DONE Get
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2018-12-25 Tue 17:36]</span></span></p>
 
 
-<a id="orge045e05"></a>
+<a id="org40e101b"></a>
 
 ### NEXT Post
 
 
-<a id="org0f619c0"></a>
+<a id="org2b33a0e"></a>
+
+### TODO Bugs
+
+
+<a id="orgb794b62"></a>
+
+#### TODO Fix an error from inspect.Parameter which caused the function parallel down.
+
+
+<a id="org1b62763"></a>
 
 # Epoligue
 
 
-<a id="org90eabca"></a>
+<a id="org953eff6"></a>
 
 ## History
 
 
-<a id="org8af289f"></a>
+<a id="org40f41b8"></a>
+
+### Version 0.1.1
+
+-   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-26 Wed&gt;</span></span>
+-   **Ignored:** An error caused by `inspect.Parameter`
+-   **Help Wanted:** Can someone help me about the Parameter?
+
+
+<a id="org18b1472"></a>
 
 ### Version 0.1.0
 

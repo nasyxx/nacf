@@ -7,3 +7,7 @@ CLOSED: [2018-12-25 Tue 17:36]
 :END:
 
 ** NEXT Post
+
+** TODO Bugs
+
+*** TODO Fix an error from inspect.Parameter which caused the function parallel down.
