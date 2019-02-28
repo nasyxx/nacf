@@ -41,7 +41,13 @@ There are more things in heaven and earth, Horatio, than are dreamt.
 # Standard Library
 import unittest
 
-from nacf import __version__
+# Prelude
+from nalude import flatten
+
+# Other Packages
+from nacf import (css, get, gets, html, json, post, text,
+                  urls, posts, xpath, parallel, __version__,)
+from nacf.types import Res, Json, Iterable
 
 
 class NacfTest(unittest.TestCase):
@@ -55,6 +61,127 @@ class NacfTest(unittest.TestCase):
                     version = line.split()[-1].replace('"', "")
                     break
         self.assertEqual(__version__, version)
+
+    def test_get_css(self) -> None:
+        """Test get and css."""
+
+        @get("python.org")
+        @css(".widget-title", first=True)
+        @text
+        def crawler(res: str) -> str:
+            """Test crawler."""
+            return res
+
+        self.assertEqual(crawler(), "Get Started")
+
+    def test_gets_xpath(self) -> None:
+        """Test gets and xpath."""
+
+        @gets(["python.org", "python.org"])
+        @xpath("//*[@class='widget-title']", first=True)
+        @text
+        def crawler(res: str) -> str:
+            """Test crawler."""
+            return res
+
+        self.assertEqual(
+            list(flatten(crawler())), ["Get Started", "Get Started"]
+        )
+
+    def test_post_json(self) -> None:
+        """Test post, posts and json."""
+
+        @post(
+            "https://app.fakejson.com/q",
+            json={
+                "token": "FOk7RjbecxtWJHljGjCNjg",
+                "data": {
+                    "colorText": "colorText",
+                    "colorHex": "colorHex",
+                    "colorRGB": "colorRGB",
+                    "colorHSL": "colorHSL",
+                },
+            },
+        )
+        @json
+        def crawler(res: Json) -> Json:
+            """Test crawler."""
+            return res
+
+        self.assertEqual(
+            crawler(),
+            {
+                "colorText": "tufts blue",
+                "colorRGB": "rgb(22, 75, 56)",
+                "colorHex": "colorHex",
+                "colorHSL": "hsl(233, 14%, 14%)",
+            },
+        )
+
+    def test_posts(self) -> None:
+        """Test posts and json."""
+
+        @posts(
+            ["https://app.fakejson.com/q"] * 3,
+            jsons=[
+                {
+                    "token": "FOk7RjbecxtWJHljGjCNjg",
+                    "data": {
+                        "colorText": "colorText",
+                        "colorHex": "colorHex",
+                        "colorRGB": "colorRGB",
+                        "colorHSL": "colorHSL",
+                    },
+                }
+            ]
+            * 3,
+        )
+        def crawler(res: Res) -> Iterable[Json]:
+            """Test crawler."""
+            return map(lambda r: r.json(), res)
+
+        self.assertEqual(
+            list(flatten(crawler())),
+            [
+                {
+                    "colorText": "tufts blue",
+                    "colorRGB": "rgb(22, 75, 56)",
+                    "colorHex": "colorHex",
+                    "colorHSL": "hsl(233, 14%, 14%)",
+                }
+            ]
+            * 3,
+        )
+
+    def test_urls_text(self) -> None:
+        """Test urls and text."""
+
+        @urls(["python.org", "python.org"])
+        @gets()
+        @css(".widget-title", first=True)
+        @text
+        def crawler(res: str) -> str:
+            """Test crawler."""
+            return res
+
+        self.assertEqual(
+            list(flatten(crawler())), ["Get Started", "Get Started"]
+        )
+
+    def test_parallel_html(self) -> None:
+        """Test parallel."""
+
+        @urls(["python.org", "python.org"])
+        @parallel()
+        @get()
+        @html
+        def crawler(res: Res) -> str:
+            """Test crawler."""
+            return res.find(".widget-title", first=True).text
+
+        self.assertEqual(
+            list(flatten(crawler())), ["Get Started", "Get Started"]
+        )
 
 
 def run() -> None:
