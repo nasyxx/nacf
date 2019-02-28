@@ -1,4 +1,8 @@
-* TODO Http Functions
+* DONE Http Functions
+CLOSED: [2019-02-28 Thu 20:51]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2019-02-28 Thu 20:51]
+:END:
 
 ** DONE Get
 CLOSED: [2018-12-25 Tue 17:36]
@@ -6,12 +10,25 @@ CLOSED: [2018-12-25 Tue 17:36]
 - State "DONE"       from "NEXT"       [2018-12-25 Tue 17:36]
 :END:
 
-** NEXT Post
+** DONE Post
+CLOSED: [2019-02-28 Thu 20:44]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2019-02-28 Thu 20:44]
+:END:
 
-** TODO Bugs
+** DONE Bugs
+CLOSED: [2019-02-28 Thu 20:51]
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2019-02-28 Thu 20:51]
+:END:
 
 *** DONE Fix an error from inspect.Parameter which caused the function parallel down. :err:1:
 CLOSED: [2018-12-26 Wed 20:26]
 :LOGBOOK:
 - State "DONE"       from "NEXT"       [2018-12-26 Wed 20:26]
 :END:
+
+
+* NEXT Docs
+
+** NEXT Usage

@@ -1,22 +1,25 @@
 # Table of Contents
 
--   [Prologue](#orge8b2d63)
--   [Packages](#org2d6e4f2)
--   [Development Process](#orgcdb2d25)
-    -   [Http Functions](#org2562d26)
-        -   [Get](#org268a91b)
-        -   [Post](#org39534ac)
-        -   [Bugs](#org60b0f47)
-            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#org5f07c18):err:1:
--   [Epoligue](#orga79b864)
-    -   [History](#orgd2e0e7c)
-        -   [Version 0.1.2](#org1180830)
-        -   [Version 0.1.1](#org3b9e479)
-        -   [Version 0.1.0](#orga1b8a28)
+-   [Prologue](#org6dc9402)
+-   [Packages](#org37032fa)
+-   [Development Process](#org1eb07f9)
+    -   [Http Functions](#orgd862ea6)
+        -   [Get](#orgb88fa50)
+        -   [Post](#orgd091da7)
+        -   [Bugs](#orga99911a)
+            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#orga7af803):err:1:
+    -   [Docs](#orga5017d7)
+        -   [Usage](#org21efc61)
+-   [Epoligue](#org1e897d7)
+    -   [History](#orgba8919d)
+        -   [Version 1.0.0](#orgb21403b)
+        -   [Version 0.1.2](#orgcd42135)
+        -   [Version 0.1.1](#orgce6ff7d)
+        -   [Version 0.1.0](#orgcc23226)
 
 
 
-<a id="orge8b2d63"></a>
+<a id="org6dc9402"></a>
 
 # Prologue
 
@@ -30,7 +33,7 @@ started writing this nacf (Nasy Crawler Framework), hoping to simplify some erro
 parallel writing of crawlers.
 
 
-<a id="org2d6e4f2"></a>
+<a id="org37032fa"></a>
 
 # Packages
 
@@ -58,75 +61,111 @@ parallel writing of crawlers.
 <td class="org-right">0.9.0</td>
 <td class="org-left">HTML Parsing for Humans.</td>
 </tr>
+
+
+<tr>
+<td class="org-left">nalude</td>
+<td class="org-right">0.2.0</td>
+<td class="org-left">A standard module.  Inspired by Haskell&rsquo;s Prelude.</td>
+</tr>
 </tbody>
 </table>
 
 
-<a id="orgcdb2d25"></a>
+<a id="org1eb07f9"></a>
 
 # Development Process
 
 
-<a id="org2562d26"></a>
+<a id="orgd862ea6"></a>
 
-## TODO Http Functions
+## DONE Http Functions
+
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:51:00 2019&gt;</span></span></p>
 
 
-<a id="org268a91b"></a>
+<a id="orgb88fa50"></a>
 
 ### DONE Get
 
-<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2018-12-25 Tue 17:36]</span></span></p>
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Tue Dec 25 17:36:00 2018&gt;</span></span></p>
 
 
-<a id="org39534ac"></a>
+<a id="orgd091da7"></a>
 
-### NEXT Post
+### DONE Post
 
-
-<a id="org60b0f47"></a>
-
-### TODO Bugs
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:44:00 2019&gt;</span></span></p>
 
 
-<a id="org5f07c18"></a>
+<a id="orga99911a"></a>
+
+### DONE Bugs
+
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:51:00 2019&gt;</span></span></p>
+
+
+<a id="orga7af803"></a>
 
 #### DONE Fix an error from inspect.Parameter which caused the function parallel down.     :err:1:
 
-<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2018-12-26 Wed 20:26]</span></span></p>
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Wed Dec 26 20:26:00 2018&gt;</span></span></p>
 
 
-<a id="orga79b864"></a>
+<a id="orga5017d7"></a>
+
+## NEXT Docs
+
+
+<a id="org21efc61"></a>
+
+### NEXT Usage
+
+
+<a id="org1e897d7"></a>
 
 # Epoligue
 
 
-<a id="orgd2e0e7c"></a>
+<a id="orgba8919d"></a>
 
 ## History
 
 
-<a id="org1180830"></a>
+<a id="orgb21403b"></a>
+
+### Version 1.0.0
+
+-   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;Thu Feb 28, 2019&gt;</span></span>
+-   **Changes:** Now, old HTTP methods (`get` and `post`) cannot accept multiple URLs. Instead, we can use `gets` and `posts`.
+-   **Adds:** -   `nacf.html`
+    -   `nacf.json`
+    -   `nacf.gets`
+    -   `nacf.posts`
+-   **Includes:** -   `nalude`
+
+
+<a id="orgcd42135"></a>
 
 ### Version 0.1.2
 
--   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-26 Wed&gt;</span></span>
+-   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;Wed Dec 26, 2018&gt;</span></span>
 -   **Fixed:** `inspect.Parameter` error in last version.
 
 
-<a id="org3b9e479"></a>
+<a id="orgce6ff7d"></a>
 
 ### Version 0.1.1
 
--   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-26 Wed&gt;</span></span>
+-   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;Wed Dec 26, 2018&gt;</span></span>
 -   **Ignored:** An error caused by `inspect.Parameter`
 -   **Help Wanted:** Can someone help me about the Parameter?
 
 
-<a id="orga1b8a28"></a>
+<a id="orgcc23226"></a>
 
 ### Version 0.1.0
 
--   **Date:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-12-23 Sun&gt;</span></span>
+-   **Date:** <span class="timestamp-wrapper"><span class="timestamp">&lt;Sun Dec 23, 2018&gt;</span></span>
 -   **Commemorate Version:** First Version
     -   Basic Functions.

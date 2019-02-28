@@ -27,9 +27,10 @@ parallel writing of crawlers.
 * Packages
 
 #+caption: Packages
-| Package       | Version | Description              |
-|---------------+---------+--------------------------|
-| requests-html |   0.9.0 | HTML Parsing for Humans. |
+| Package       | Version | Description                                        |
+|---------------+---------+----------------------------------------------------|
+| requests-html |   0.9.0 | HTML Parsing for Humans.                           |
+| nalude        |   0.2.0 | A standard module.  Inspired by Haskell's Prelude. |
 
 * Development Process
 
