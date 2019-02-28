@@ -37,10 +37,11 @@ license  : GPL-3.0+
 There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"
 """
-__version__ = "0.1.2"
+__version__ = "1.0.0"
 
 # Local Packages
-from .models import css, get, gets, post, text, urls, posts, xpath, parallel
+from .models import (css, get, gets, html, json, post,
+                     text, urls, posts, xpath, parallel,)
 
 if __name__ == "__main__":
     assert css
@@ -48,6 +49,8 @@ if __name__ == "__main__":
     assert gets
     assert post
     assert posts
+    assert html
+    assert json
     assert text
     assert urls
     assert xpath
