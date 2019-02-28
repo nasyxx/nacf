@@ -40,8 +40,11 @@ There are more things in heaven and earth, Horatio, than are dreamt.
 # Standard Library
 from inspect import Parameter, Signature, signature
 
+# Prelude
+from nalude import flatten
+
 # Local Packages
-from .types import RT, Url, Func, Optional, a, b
+from .types import Url, Func, Optional
 
 
 def format_url(url: Optional[Url]) -> Optional[Url]:
@@ -58,4 +61,4 @@ def generate_sig(func: Func, *params: Parameter) -> Signature:
     )
 
 
-__all__ = ["format_url"]
+__all__ = ["format_url", "flatten"]

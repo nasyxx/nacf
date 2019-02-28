@@ -29,6 +29,7 @@ Excited without bugs::
 
 author   : Nasy https://nasy.moe
 date     : Dec 24, 2018
+update   : Feb 28, 2019
 email    : Nasy <nasyxx+python@gmail.com>
 filename : models.py
 project  : nacf
@@ -48,9 +49,9 @@ from requests_html import HTMLSession as s
 
 # Local Packages
 from .tools import format_url, generate_sig
-from .types import (RT, Ele, Res, Url, Data, Eles, Func, Json,
+from .types import (RT, HTML, Ele, Res, Url, Data, Eles, Func, Json,
                     List, Urls, EFunc, Reses, RFunc, SFunc, Tuple,
-                    Union, Callable, Iterable, Optional, a, b,)
+                    Union, RsFunc, Callable, Iterable, Optional, a, b,)
 
 
 def urls(urls_: Urls, **kwds: a) -> Callable[[Func], Func]:
@@ -77,7 +78,7 @@ def parallel(n: Optional[int] = None, **kwds: a) -> Callable[[Func], Func]:
 
         @wraps(func)
         def wrapper(
-            _urls: Urls = Optional[None],
+            _urls: Urls,
             *,
             _datas: Optional[Iterable[Data]] = None,
             _jsons: Optional[Iterable[Json]] = None,
@@ -130,9 +131,7 @@ def parallel(n: Optional[int] = None, **kwds: a) -> Callable[[Func], Func]:
     return decorator
 
 
-def get(
-    url: Optional[Url] = None, *urls: Url, first: bool = False, **kwds: a
-) -> Callable[[RFunc], RFunc]:
+def get(url: Url = None, **kwds: a) -> Callable[[RFunc], RFunc]:
     """Get url."""
 
     def decorator(func: RFunc) -> RFunc:
@@ -140,25 +139,10 @@ def get(
 
         @wraps(func)
         def wrapper(
-            _url: Url = None,
-            *,
-            _urls: Optional[Urls] = None,
-            _s: Optional[s] = None,
-        ) -> Union[Res, Reses]:
+            _url: Optional[Url] = None, *, _s: Optional[s] = None
+        ) -> Res:
             """Wrap function func."""
-            return func(
-                (lambda res: first and next(chain(res, (None,))) or res)(
-                    map(
-                        lambda u: (_s or s()).get(u, **kwds),
-                        map(
-                            format_url,
-                            filter(
-                                bool, chain((url,), urls, (_url,), _urls or [])
-                            ),
-                        ),
-                    )
-                )
-            )
+            return func((_s or s()).get(format_url(_url or url), **kwds))
 
         setattr(
             wrapper,
@@ -172,8 +156,46 @@ def get(
                     annotation="Optional[Url]",
                 ),
                 Parameter(
-                    "_urls",
+                    "_s",
                     Parameter.KEYWORD_ONLY,
+                    default=None,
+                    annotation="Optional[HTMLSession]",
+                ),
+            ),
+        )
+
+        return wrapper
+
+    return decorator
+
+
+def gets(urls: Urls = None, **kwds: a) -> Callable[[RsFunc], RsFunc]:
+    """Get url."""
+
+    def decorator(func: RsFunc) -> RsFunc:
+        """Decorate function func."""
+
+        @wraps(func)
+        def wrapper(
+            _urls: Optional[Urls] = None, *, _s: Optional[s] = None
+        ) -> Reses:
+            """Wrap function func."""
+            return func(
+                map(
+                    lambda u: (_s or s()).get(format_url(u)),
+                    _urls or urls or [""],
+                ),
+                **kwds,
+            )
+
+        setattr(
+            wrapper,
+            "__signature__",
+            generate_sig(
+                func,
+                Parameter(
+                    "_urls",
+                    Parameter.POSITIONAL_OR_KEYWORD,
                     default=None,
                     annotation="Optional[Urls]",
                 ),
@@ -193,10 +215,9 @@ def get(
 
 def post(
     url: Optional[Url] = None,
-    *urls: Url,
+    *,
     data: Data = None,
     json: Json = None,
-    first: bool = False,
     **kwds: a,
 ) -> Callable[[RFunc], RFunc]:
     """Post url with data and json."""
@@ -207,33 +228,14 @@ def post(
         @wraps(func)
         def wrapper(
             _url: Optional[Url] = None,
-            _data: Data = None,
-            _json: Json = None,
+            _data: Optional[Data] = None,
+            _json: Optional[Json] = None,
             *,
-            _urls: Optional[Urls] = None,
             _s: Optional[s] = None,
-            **_kwds: b,
-        ) -> Union[Res, Reses]:
+        ) -> Res:
             """Wrap function func."""
-
             return func(
-                (lambda res: first and next(chain(res, (None,))) or res)(
-                    map(
-                        lambda u: (_s or s()).post(
-                            u,
-                            data=_data or data,
-                            json=_json or json,
-                            **kwds,
-                            **_kwds,
-                        ),
-                        map(
-                            format_url,
-                            filter(
-                                bool, chain((url,), urls, (_url,), _urls or [])
-                            ),
-                        ),
-                    )
-                )
+                (_s or s()).post(format_url(url), data=data, json=json, **kwds)
             )
 
         setattr(
@@ -260,10 +262,81 @@ def post(
                     annotation="Optional[Json]",
                 ),
                 Parameter(
-                    "_urls",
+                    "_s",
                     Parameter.KEYWORD_ONLY,
                     default=None,
+                    annotation="Optional[HTMLSession]",
+                ),
+            ),
+        )
+
+        return wrapper
+
+    return decorator
+
+
+def posts(
+    urls: Optional[Urls] = None,
+    *,
+    datas: Optional[Iterable[Data]] = None,
+    jsons: Optional[Iterable[Json]] = None,
+    **kwds: a,
+) -> Callable[[RsFunc], RsFunc]:
+    """Post url with data and json."""
+
+    def decorator(func: RsFunc) -> RsFunc:
+        """Decorate function func."""
+
+        @wraps(func)
+        def wrapper(
+            _urls: Optional[Urls] = None,
+            *,
+            _datas: Optional[Iterable[Data]] = None,
+            _jsons: Optional[Iterable[Json]] = None,
+            _s: Optional[s] = None,
+        ) -> Res:
+            """Wrap function func."""
+
+            def _post(udj: Tuple[Url, Data, Json]) -> Res:
+                """Make a post."""
+                url, data, json = udj
+                return (_s or s()).post(
+                    format_url(url), data=data, json=json, **kwds
+                )
+
+            return func(
+                map(
+                    _post,
+                    zip(
+                        _urls or urls or [""],
+                        _datas or datas or cycle([None]),
+                        _jsons or jsons or cycle([dict()]),
+                    ),
+                )
+            )
+
+        setattr(
+            wrapper,
+            "__signature__",
+            generate_sig(
+                func,
+                Parameter(
+                    "_urls",
+                    Parameter.POSITIONAL_OR_KEYWORD,
+                    default=None,
                     annotation="Optional[Urls]",
+                ),
+                Parameter(
+                    "_datas",
+                    Parameter.POSITIONAL_OR_KEYWORD,
+                    default=None,
+                    annotation="Optional[Iterable[Data]]",
+                ),
+                Parameter(
+                    "_jsons",
+                    Parameter.POSITIONAL_OR_KEYWORD,
+                    default=None,
+                    annotation="Optional[Iterable[Json]]",
                 ),
                 Parameter(
                     "_s",
@@ -295,12 +368,8 @@ def css(
         @wraps(func)
         def wrapper(_res: Union[Res, Reses]) -> Union[Ele, Eles]:
             """Wrap function func."""
-            return func(
-                (
-                    lambda eles: eles
-                    if first or isinstance(_res, Res)
-                    else chain.from_iterable(eles)
-                )(
+            return (
+                func(
                     _res.html.find(
                         selector,
                         containing=containing,
@@ -308,16 +377,20 @@ def css(
                         first=first,
                         _encoding=_encoding,
                     )
-                    if isinstance(_res, Res)
-                    else map(
-                        lambda r: r.html.find(
-                            selector,
-                            containing=containing,
-                            clean=clean,
-                            first=first,
-                            _encoding=_encoding,
-                        ),
-                        _res,
+                )
+                if isinstance(_res, Res)
+                else func(
+                    (lambda ele: ele if first else chain.from_iterable(ele))(
+                        map(
+                            lambda r: r.html.find(
+                                selector,
+                                containing=containing,
+                                clean=clean,
+                                first=first,
+                                _encoding=_encoding,
+                            ),
+                            _res,
+                        )
                     )
                 )
             )
@@ -331,7 +404,7 @@ def css(
                     "_res",
                     Parameter.POSITIONAL_OR_KEYWORD,
                     default=None,
-                    annotation="Union[Res, Reses]",
+                    annotation="Res",
                 ),
             ),
         )
@@ -357,17 +430,13 @@ def xpath(
         def wrapper(_res: Union[Res, Reses]) -> Union[Ele, Eles]:
             """Wrap function func."""
             return func(
-                (
-                    lambda eles: eles
-                    if first or isinstance(_res, Res)
-                    else chain.from_iterable(eles)
-                )(
-                    _res.html.xpath(
-                        selector, clean=clean, first=first, _encoding=_encoding
-                    )
-                    if isinstance(_res, Res)
-                    else map(
-                        lambda r: r.html.find(
+                _res.html.xpath(
+                    selector, clean=clean, first=first, _encoding=_encoding
+                )
+                if isinstance(_res, Res)
+                else (lambda ele: ele if first else chain.from_iterable(ele))(
+                    map(
+                        lambda r: r.html.xpath(
                             selector,
                             clean=clean,
                             first=first,
@@ -387,7 +456,7 @@ def xpath(
                     "_res",
                     Parameter.POSITIONAL_OR_KEYWORD,
                     default=None,
-                    annotation="Union[Res, Reses]",
+                    annotation="Res",
                 ),
             ),
         )
@@ -397,14 +466,76 @@ def xpath(
     return decorator
 
 
-def text(func: SFunc) -> SFunc:
-    """Get text from response of css/xpath."""
+def html(func: SFunc) -> SFunc:
+    """Get html from response."""
 
     @wraps(func)
-    def wrapper(_ele: Union[Ele, Eles]) -> Union[str, Iterable[str], None]:
+    def wrapper(_res: Union[Res, Reses]) -> Union[HTML, Iterable[HTML]]:
+        """Wrap function func."""
+        return (
+            func(_res.html)
+            if isinstance(_res, Res)
+            else map(lambda r: r.html, _res)
+        )
+
+    setattr(
+        wrapper,
+        "__signature__",
+        generate_sig(
+            func,
+            Parameter(
+                "_res",
+                Parameter.POSITIONAL_OR_KEYWORD,
+                default=None,
+                annotation="Res",
+            ),
+        ),
+    )
+
+    return wrapper
+
+
+def json(
+    func: Callable[..., Union[Json, Iterable[Json]]]
+) -> Callable[[Union[Res, Reses]], Union[Json, Iterable[Json]]]:
+    """Get json from response."""
+
+    @wraps(func)
+    def wrapper(_res: Union[Res, Reses]) -> Union[Json, Iterable[Json]]:
+        """Wrap function func."""
+        return (
+            func(_res.json())
+            if isinstance(_res, Res)
+            else map(lambda r: r.json(), _res)
+        )
+
+    setattr(
+        wrapper,
+        "__signature__",
+        generate_sig(
+            func,
+            Parameter(
+                "_res",
+                Parameter.POSITIONAL_OR_KEYWORD,
+                default=None,
+                annotation="Res",
+            ),
+        ),
+    )
+
+    return wrapper
+
+
+def text(func: SFunc) -> SFunc:
+    """Get text from response or element(s) from css/xpath."""
+
+    @wraps(func)
+    def wrapper(_ele: Union[Res, Ele, Eles]) -> Union[str, Iterable[str]]:
         """Wrap function func."""
         return func(
-            _ele.text if isinstance(_ele, Ele) else map(lambda e: e.text, _ele)
+            _ele.text
+            if isinstance(_ele, Ele) or isinstance(_ele, Res)
+            else map(lambda e: e.text, _ele)
         )
 
     setattr(
@@ -416,44 +547,9 @@ def text(func: SFunc) -> SFunc:
                 "_ele",
                 Parameter.POSITIONAL_OR_KEYWORD,
                 default=None,
-                annotation="Union[Ele, Eles]",
+                annotation="Union[Res, Ele, Eles]",
             ),
         ),
     )
 
     return wrapper
-
-
-if __name__ == "__main__":
-
-    import time
-
-    @urls(["python.org", "python.org", "python.org", "python.org"])
-    @parallel(4)
-    @get()
-    @css(".widget-title")
-    @text
-    def crawler(res: Iterable[str]) -> None:
-        """Crawler."""
-        for r in res:
-            print(r)
-
-    @urls(["python.org", "python.org", "python.org", "python.org"])
-    # @parallel(1)
-    @get()
-    @css(".widget-title")
-    @text
-    def crawler2(res: Iterable[str]) -> None:
-        """Crawler."""
-        for r in res:
-            print(r)
-
-    print("with parallel 4")
-    pt = time.time()
-    crawler()
-    print("with parallel:", time.time() - pt)
-
-    t = time.time()
-    print("without parallel")
-    crawler2()
-    print("without parallel", time.time() - t)

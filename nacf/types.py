@@ -38,21 +38,11 @@ There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"
 """
 # Standard Library
-from typing import (
-    IO,
-    Dict,
-    List,
-    Tuple,
-    Union,
-    TypeVar,
-    Callable,
-    Iterable,
-    Optional,
-    ByteString,
-    overload,
-)
+from typing import (IO, Dict, List, Tuple, Union, TypeVar,
+                    Callable, Iterable, Optional, ByteString,)
 
 # Web Packages
+from requests_html import HTML
 from requests_html import Element as Ele
 from requests_html import HTMLResponse as Res
 
@@ -65,30 +55,35 @@ RT = TypeVar("RT")
 Func = Callable[..., RT]
 
 Reses = Iterable[Res]
-RFunc = Callable[..., Union[Res, Reses]]
+RFunc = Callable[..., Res]
+RsFunc = Callable[..., Reses]
 
 Eles = Iterable[Ele]
 EFunc = Callable[..., Union[Ele, Eles]]
 
-SFunc = Callable[..., Union[str, Iterable[str], None]]
+SFunc = Callable[..., Union[str, Iterable[str]]]
 
 # request
 Data = Optional[Union[Dict[str, a], ByteString, IO]]
 Json = Dict[str, a]
 Url = str
-Urls = List[Url]
+Urls = Iterable[Url]
 
 __all__ = [
     "Res",
     "Reses",
+    "HTML",
     "a",
     "b",
     "RT",
     "Func",
     "RFunc",
+    "RsFunc",
     "SFunc",
     "Data",
     "Json",
     "Url",
     "Urls",
+    "List",
+    "Tuple",
 ]
