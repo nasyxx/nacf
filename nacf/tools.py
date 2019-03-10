@@ -32,7 +32,7 @@ date     : Dec 23, 2018
 email    : Nasy <nasyxx+python@gmail.com>
 filename : tools.py
 project  : nacf
-license  : GPL-3.0+
+license  : LGPL-3.0+
 
 There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"

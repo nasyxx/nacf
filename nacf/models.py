@@ -33,7 +33,7 @@ update   : Feb 28, 2019
 email    : Nasy <nasyxx+python@gmail.com>
 filename : models.py
 project  : nacf
-license  : GPL-3.0+
+license  : LGPL-3.0+
 
 There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"

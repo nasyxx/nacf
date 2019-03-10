@@ -6,14 +6,14 @@ authors = ["Nasy <nasyxx+nacf@gmail.com>"]
 license = "LGPL-3.0+"
 keywords = ["crawler"]
 classifiers = [
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Topic :: Software Development :: Libraries :: Application Frameworks",
     "Topic :: Utilities"
 ]
 readme = "README.md"
-include = ["CHANGELOG", "poetry.lock", "README.org", "README.html"]
+include = ["CHANGELOG", "poetry.lock", "README.org", "README.html", "LICENSE"]
 repository = "https://github.com/nasyxx/nacf"
 
 [tool.poetry.dependencies]
