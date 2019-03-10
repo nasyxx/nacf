@@ -1,25 +1,26 @@
 # Table of Contents
 
--   [Prologue](#org6dc9402)
--   [Packages](#org37032fa)
--   [Development Process](#org1eb07f9)
-    -   [Http Functions](#orgd862ea6)
-        -   [Get](#orgb88fa50)
-        -   [Post](#orgd091da7)
-        -   [Bugs](#orga99911a)
-            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#orga7af803):err:1:
-    -   [Docs](#orga5017d7)
-        -   [Usage](#org21efc61)
--   [Epoligue](#org1e897d7)
-    -   [History](#orgba8919d)
-        -   [Version 1.0.0](#orgb21403b)
-        -   [Version 0.1.2](#orgcd42135)
-        -   [Version 0.1.1](#orgce6ff7d)
-        -   [Version 0.1.0](#orgcc23226)
+-   [Prologue](#orgf6129f3)
+-   [Packages](#orgc58973f)
+-   [Development Process](#orga10dcfb)
+    -   [Http Functions](#orge0f891c)
+        -   [Get](#orge2461c0)
+        -   [Post](#org31f2827)
+        -   [Bugs](#orgbdc9f28)
+            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#org496c94b):err:1:
+    -   [Docs](#org84a0c46)
+        -   [Usage](#org14e5d82)
+-   [Epoligue](#orga2a136d)
+    -   [History](#org787c477)
+        -   [Version 1.0.1](#orgd26f397)
+        -   [Version 1.0.0](#orgeb83aa0)
+        -   [Version 0.1.2](#orgd54d625)
+        -   [Version 0.1.1](#orgc5fc33b)
+        -   [Version 0.1.0](#org1fa11b1)
 
 
 
-<a id="org6dc9402"></a>
+<a id="orgf6129f3"></a>
 
 # Prologue
 
@@ -33,7 +34,7 @@ started writing this nacf (Nasy Crawler Framework), hoping to simplify some erro
 parallel writing of crawlers.
 
 
-<a id="org37032fa"></a>
+<a id="orgc58973f"></a>
 
 # Packages
 
@@ -72,67 +73,75 @@ parallel writing of crawlers.
 </table>
 
 
-<a id="org1eb07f9"></a>
+<a id="orga10dcfb"></a>
 
 # Development Process
 
 
-<a id="orgd862ea6"></a>
+<a id="orge0f891c"></a>
 
 ## DONE Http Functions
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:51:00 2019&gt;</span></span></p>
 
 
-<a id="orgb88fa50"></a>
+<a id="orge2461c0"></a>
 
 ### DONE Get
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Tue Dec 25 17:36:00 2018&gt;</span></span></p>
 
 
-<a id="orgd091da7"></a>
+<a id="org31f2827"></a>
 
 ### DONE Post
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:44:00 2019&gt;</span></span></p>
 
 
-<a id="orga99911a"></a>
+<a id="orgbdc9f28"></a>
 
 ### DONE Bugs
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:51:00 2019&gt;</span></span></p>
 
 
-<a id="orga7af803"></a>
+<a id="org496c94b"></a>
 
 #### DONE Fix an error from inspect.Parameter which caused the function parallel down.     :err:1:
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Wed Dec 26 20:26:00 2018&gt;</span></span></p>
 
 
-<a id="orga5017d7"></a>
+<a id="org84a0c46"></a>
 
 ## NEXT Docs
 
 
-<a id="org21efc61"></a>
+<a id="org14e5d82"></a>
 
 ### NEXT Usage
 
 
-<a id="org1e897d7"></a>
+<a id="orga2a136d"></a>
 
 # Epoligue
 
 
-<a id="orgba8919d"></a>
+<a id="org787c477"></a>
 
 ## History
 
 
-<a id="orgb21403b"></a>
+<a id="orgd26f397"></a>
+
+### Version 1.0.1
+
+-   **Data:** <span class="timestamp-wrapper"><span class="timestamp">&lt;Sun Mar 10, 2019&gt;</span></span>
+-   **Changes:** Update requests-html.
+
+
+<a id="orgeb83aa0"></a>
 
 ### Version 1.0.0
 
@@ -145,7 +154,7 @@ parallel writing of crawlers.
 -   **Includes:** -   `nalude`
 
 
-<a id="orgcd42135"></a>
+<a id="orgd54d625"></a>
 
 ### Version 0.1.2
 
@@ -153,7 +162,7 @@ parallel writing of crawlers.
 -   **Fixed:** `inspect.Parameter` error in last version.
 
 
-<a id="orgce6ff7d"></a>
+<a id="orgc5fc33b"></a>
 
 ### Version 0.1.1
 
@@ -162,7 +171,7 @@ parallel writing of crawlers.
 -   **Help Wanted:** Can someone help me about the Parameter?
 
 
-<a id="orgcc23226"></a>
+<a id="org1fa11b1"></a>
 
 ### Version 0.1.0
 

@@ -37,7 +37,7 @@ license  : GPL-3.0+
 There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"
 """
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 # Local Packages
 from .models import (css, get, gets, html, json, post,
