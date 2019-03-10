@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "nacf"
-version = "1.0.1"
+version = "1.0.2"
 description = "Nasy Crawler Framework -- Never had such a pure crawler."
 authors = ["Nasy <nasyxx+nacf@gmail.com>"]
 license = "GPL-3.0+"
 keywords = ["crawler"]
 classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Topic :: Software Development :: Libraries :: Application Frameworks",
     "Topic :: Utilities"
@@ -16,8 +17,8 @@ include = ["CHANGELOG", "poetry.lock", "README.org", "README.html"]
 repository = "https://github.com/nasyxx/nacf"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-nalude = "^0.2.0"
+python = "^3.6"
+nalude = ">=0.3"
 requests_html = "^0.10.0"
 
 [tool.poetry.dev-dependencies]
