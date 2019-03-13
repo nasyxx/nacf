@@ -1,27 +1,28 @@
 # Table of Contents
 
--   [Prologue](#org0e50bf5)
--   [Packages](#org8d83637)
--   [Development Process](#org3c2b122)
-    -   [Http Functions](#org65f19c4)
-        -   [Get](#orgc37419a)
-        -   [Post](#orgbddf88e)
-        -   [Bugs](#org9d69720)
-            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#org91e1850):err:1:
-    -   [Docs](#org878a65f)
-        -   [Usage](#orgd655d3f)
--   [Epoligue](#org3ee3f8d)
-    -   [History](#orge615d48)
-        -   [Version 1.0.2](#org556c914)
-        -   [Version 1.0.1](#orga986377)
-        -   [Version 1.0.0](#org09b91fe)
-        -   [Version 0.1.2](#org7b65082)
-        -   [Version 0.1.1](#org4cdc978)
-        -   [Version 0.1.0](#org8e20622)
+-   [Prologue](#org5a5b482)
+-   [Packages](#org5162ade)
+-   [Usage](#org8f95840)
+-   [Development Process](#org500bff6)
+    -   [Http Functions](#orgea60df6)
+        -   [Get](#orgc53178d)
+        -   [Post](#org4816e1a)
+        -   [Bugs](#orgf07ea04)
+            -   [Fix an error from inspect.Parameter which caused the function parallel down.](#org8cb169d):err:1:
+    -   [Docs](#org471c09e)
+        -   [Usage](#orgdd40ced)
+-   [Epoligue](#org7d09938)
+    -   [History](#org9b25ed6)
+        -   [Version 1.0.2](#orgd045e62)
+        -   [Version 1.0.1](#orgf937241)
+        -   [Version 1.0.0](#org73249ca)
+        -   [Version 0.1.2](#org872c4cb)
+        -   [Version 0.1.1](#orga13def9)
+        -   [Version 0.1.0](#org94f75db)
 
 
 
-<a id="org0e50bf5"></a>
+<a id="org5a5b482"></a>
 
 # Prologue
 
@@ -35,7 +36,7 @@ started writing this nacf (Nasy Crawler Framework), hoping to simplify some erro
 parallel writing of crawlers.
 
 
-<a id="org8d83637"></a>
+<a id="org5162ade"></a>
 
 # Packages
 
@@ -74,67 +75,74 @@ parallel writing of crawlers.
 </table>
 
 
-<a id="org3c2b122"></a>
+<a id="org8f95840"></a>
+
+# Usage
+
+see [tests](https://github.com/nasyxx/nacf/blob/master/tests/test_nacf.py).
+
+
+<a id="org500bff6"></a>
 
 # Development Process
 
 
-<a id="org65f19c4"></a>
+<a id="orgea60df6"></a>
 
 ## DONE Http Functions
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:51:00 2019&gt;</span></span></p>
 
 
-<a id="orgc37419a"></a>
+<a id="orgc53178d"></a>
 
 ### DONE Get
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Tue Dec 25 17:36:00 2018&gt;</span></span></p>
 
 
-<a id="orgbddf88e"></a>
+<a id="org4816e1a"></a>
 
 ### DONE Post
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:44:00 2019&gt;</span></span></p>
 
 
-<a id="org9d69720"></a>
+<a id="orgf07ea04"></a>
 
 ### DONE Bugs
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Thu Feb 28 20:51:00 2019&gt;</span></span></p>
 
 
-<a id="org91e1850"></a>
+<a id="org8cb169d"></a>
 
 #### DONE Fix an error from inspect.Parameter which caused the function parallel down.     :err:1:
 
 <p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">&lt;Wed Dec 26 20:26:00 2018&gt;</span></span></p>
 
 
-<a id="org878a65f"></a>
+<a id="org471c09e"></a>
 
 ## NEXT Docs
 
 
-<a id="orgd655d3f"></a>
+<a id="orgdd40ced"></a>
 
 ### NEXT Usage
 
 
-<a id="org3ee3f8d"></a>
+<a id="org7d09938"></a>
 
 # Epoligue
 
 
-<a id="orge615d48"></a>
+<a id="org9b25ed6"></a>
 
 ## History
 
 
-<a id="org556c914"></a>
+<a id="orgd045e62"></a>
 
 ### Version 1.0.2
 
@@ -142,7 +150,7 @@ parallel writing of crawlers.
 -   **Changes:** Update nalude.
 
 
-<a id="orga986377"></a>
+<a id="orgf937241"></a>
 
 ### Version 1.0.1
 
@@ -150,7 +158,7 @@ parallel writing of crawlers.
 -   **Changes:** Update requests-html.
 
 
-<a id="org09b91fe"></a>
+<a id="org73249ca"></a>
 
 ### Version 1.0.0
 
@@ -163,7 +171,7 @@ parallel writing of crawlers.
 -   **Includes:** -   `nalude`
 
 
-<a id="org7b65082"></a>
+<a id="org872c4cb"></a>
 
 ### Version 0.1.2
 
@@ -171,7 +179,7 @@ parallel writing of crawlers.
 -   **Fixed:** `inspect.Parameter` error in last version.
 
 
-<a id="org4cdc978"></a>
+<a id="orga13def9"></a>
 
 ### Version 0.1.1
 
@@ -180,7 +188,7 @@ parallel writing of crawlers.
 -   **Help Wanted:** Can someone help me about the Parameter?
 
 
-<a id="org8e20622"></a>
+<a id="org94f75db"></a>
 
 ### Version 0.1.0
 
