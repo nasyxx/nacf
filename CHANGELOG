@@ -1,16 +1,16 @@
 * Version 1.0.2
 
-+ Data :: <2019-03-10 Sun>
++ Date :: <2019-03-10 Sun>
 + Changes :: Update nalude.
 
 * Version 1.0.1
 
-+ Data :: <2019-03-10 Sun>
++ Date :: <2019-03-10 Sun>
 + Changes :: Update requests-html.
 
 * Version 1.0.0
 
-+ Data :: <2019-02-28 Thu>
++ Date :: <2019-02-28 Thu>
 + Changes :: Now, old HTTP methods (~get~ and ~post~) cannot accept multiple URLs. Instead, we can use ~gets~ and ~posts~.
 + Adds ::
     - ~nacf.html~
@@ -22,12 +22,12 @@
 
 * Version 0.1.2
 
-+ Data :: <2018-12-26 Wed>
++ Date :: <2018-12-26 Wed>
 + Fixed :: ~inspect.Parameter~ error in last version.
 
 * Version 0.1.1
 
-+ Data :: <2018-12-26 Wed>
++ Date :: <2018-12-26 Wed>
 + Ignored :: An error caused by ~inspect.Parameter~
 + Help Wanted :: Can someone help me about the Parameter?
 
