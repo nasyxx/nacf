@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nacf"
-version = "1.0.2"
+version = "1.0.3"
 description = "Nasy Crawler Framework -- Never had such a pure crawler."
 authors = ["Nasy <nasyxx+nacf@gmail.com>"]
 license = "LGPL-3.0+"
@@ -19,7 +19,7 @@ repository = "https://github.com/nasyxx/nacf"
 [tool.poetry.dependencies]
 python = "^3.6"
 nalude = ">=0.3"
-requests_html = "^0.10.0"
+requests_html = "0.*"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
